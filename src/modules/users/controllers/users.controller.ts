@@ -1,5 +1,6 @@
 import {
   Body,
+  ClassSerializerInterceptor,
   Controller,
   Delete,
   Get,
@@ -36,9 +37,12 @@ export class UsersController {
 
   //Get statement without any parameters
   //HttpCode if success is an OK(200)
+  //Using the ClassSerializerInterceptor Makes the class-transform kick-in
   @Get()
   @HttpCode(HttpStatus.OK)
+  @UseInterceptors(ClassSerializerInterceptor)
   public async GetAll() {
+    console.log('gotten');
     return this.usersServices.getAllUsersService();
   }
 

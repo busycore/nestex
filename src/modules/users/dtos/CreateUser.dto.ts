@@ -8,6 +8,8 @@ import {
   MinLength,
 } from 'class-validator';
 
+import { Exclude } from 'class-transformer';
+
 import { IsCPFValid } from '../validations/IsCPFValid';
 
 export default class CreateUserDTO {
